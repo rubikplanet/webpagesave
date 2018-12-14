@@ -20,10 +20,10 @@ const { skipWhile, take } = require('rxjs/operators');
 async function genPdf({url, name, width = 1366, height = 1366, zoomFactor = 1}) {
   let fileName = '';
   if (name) {
-    fileName = `${name}.pdf`
+    fileName = `${name}.png`
   } else {
     const fileKey = uuid.v1().replace(/-/gi, '');
-    fileName = `${fileKey}.pdf`;
+    fileName = `${fileKey}.png`;
   }
   const filePath = path.join('.', fileName);
 
@@ -47,7 +47,7 @@ async function genPdf({url, name, width = 1366, height = 1366, zoomFactor = 1}) 
     isLoadFinished = true;
   });
   await page.property("viewportSize", { width, height });
-  await page.property("paperSize", { format: 'A4', orientation: 'portrait', marin: '0.8cm' })
+  // await page.property("paperSize", { format: 'A4', orientation: 'portrait', marin: '0.8cm' })
   await page.open(url);
 
   interval(100).pipe(
