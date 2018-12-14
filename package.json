@@ -1,0 +1,21 @@
+{
+  "name": "webpagesave",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "webpagesave": "./main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "phantom": "^6.0.3",
+    "rxjs": "^6.3.3",
+    "yargs": "^12.0.5"
+  }
+}
