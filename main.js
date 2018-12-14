@@ -11,10 +11,13 @@ const { skipWhile, take } = require('rxjs/operators');
 (async function () {
   const url = argv.url;
   const name = argv.name;
-  await genPdf({ url, name });
+  const width = (argv.width || 1366) * 1;
+  const height = (argv.height || 10000) * 1;
+  const zoomFactor = (argv.zoomFactor || 1) * 1;
+  await genPdf({ url, name, width, height, zoomFactor });
 })();
 
-async function genPdf({url, name}) {
+async function genPdf({url, name, width = 1366, height = 1000, zoomFactor = 1}) {
   let fileName = '';
   if (name) {
     fileName = `${name}.pdf`
@@ -43,8 +46,8 @@ async function genPdf({url, name}) {
     // 等待一秒开始检测资源是否加载完
     isLoadFinished = true;
   });
-  await page.property("viewportSize", { width: 5000,height: 10000 });
-  await page.property("paperSize", { format: 'A4', orientation: 'portrait', margin: '0.8cm' });
+  await page.property("viewportSize", { width, height });
+  await page.property("paperSize", { format: 'A4', orientation: 'portrait', marin: '0.8cm' })
   await page.open(url);
 
   interval(100).pipe(
