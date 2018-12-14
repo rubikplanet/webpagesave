@@ -17,7 +17,7 @@ const { skipWhile, take } = require('rxjs/operators');
   await genPdf({ url, name, width, height, zoomFactor });
 })();
 
-async function genPdf({url, name, width = 1366, height = 1000, zoomFactor = 1}) {
+async function genPdf({url, name, width = 1366, height = 1366, zoomFactor = 1}) {
   let fileName = '';
   if (name) {
     fileName = `${name}.pdf`
