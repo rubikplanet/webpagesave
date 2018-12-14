@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const argv = require('yargs').argv;
 const uuid = require('uuid');
 const path = require('path');
