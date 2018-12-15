@@ -11,13 +11,13 @@ const { skipWhile, take } = require('rxjs/operators');
 (async function () {
   const url = argv.url;
   const name = argv.name;
-  const width = (argv.width || 1366) * 1;
-  const height = (argv.height || 5000) * 1;
+  const width = (argv.width || 960) * 1;
+  const height = (argv.height || 5760) * 1;
   const zoomFactor = (argv.zoomFactor || 1) * 1;
   await genPdf({ url, name, width, height, zoomFactor });
 })();
 
-async function genPdf({url, name, width = 1366, height = 1366, zoomFactor = 1}) {
+async function genPdf({url, name, width = 960, height = 5760, zoomFactor = 1}) {
   let fileName = '';
   if (name) {
     fileName = `${name}.png`
