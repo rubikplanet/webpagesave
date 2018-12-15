@@ -12,7 +12,7 @@ const { skipWhile, take } = require('rxjs/operators');
   const url = argv.url;
   const name = argv.name;
   const width = (argv.width || 1366) * 1;
-  const height = (argv.height || 10000) * 1;
+  const height = (argv.height || 5000) * 1;
   const zoomFactor = (argv.zoomFactor || 1) * 1;
   await genPdf({ url, name, width, height, zoomFactor });
 })();
